@@ -1,6 +1,6 @@
 # Sendviax Prototype — Relay / Web / iOS
 
-ชุด source code สำหรับส่ง prototype \
+ชุด source code สำหรับส่ง prototype
 
 ## ส่วนประกอบ
 
