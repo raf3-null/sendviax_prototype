@@ -1,0 +1,45 @@
+# test-v0 — isolated, user-approved network experiment
+
+Approved web phases 1–5 are specified in [web-pair-v1.md](web-pair-v1.md). Its opt-in web rooms preserve this envelope and legacy native room behavior.
+
+Approved by the user in this task, after review of [the proposal](../docs/relay-test-proposal.md). This is the normative specification for the isolated `/api/test` implementation only. The initial main-protocol documents remain unchanged and unapproved for product implementation. No Native interoperability is claimed.
+
+The proposal defines cryptography, envelope fields, encoding, authenticated metadata, authentication, endpoints, expiry and revocation. Exact JSON envelope fields are required; additional fields are rejected. Base64url is canonical, without padding. HKDF info is the exact UTF-8 string `sendviax-test-v0/content`. GCM nonce is 12 bytes and tag is 16 bytes, appended to ciphertext. Each message gets independent random 32-byte salt and 12-byte nonce. Production code must never use fixed vector values.
+
+Implementation limits: 5 MiB decoded payload, at most 7 MiB + 4096 bytes encrypted JSON, 10 MiB HTTP body. The second base64 layer accounts for the larger request. RAM quotas count retained base64 ciphertext strings, 32 MiB per room / 128 MiB process; 32 rooms; 256 message IDs per room retained until room expiry. Create limit 10/minute process-wide; API operations 120/minute per room-role; send 30/minute per room-role. At most 8 HTTP requests are being processed at once; request-body receive timeout is 20 seconds per receive. This is not full Internet abuse protection.
+
+Use exactly one backend worker. Restart clears rooms, capabilities, replay cache and payloads. Cleanup runs every second and before authenticated operations. Expired items are inaccessible immediately on the next operation, not merely when the background loop runs. Expired/revoked/unknown capabilities return the same 401 response. ACK is recipient-only, removes ciphertext, retains replay ID; repeated ACK returns 404. Sender upload is `available`, not proof of recipient delivery. No delivery receipt endpoint exists in this experiment.
+
+Session creation is unauthenticated but globally bounded. Owner/peer capabilities are independent random values, not derivations of the encryption secret. Any holder of a capability can act as that role. This is bearer-link pairing, without identity verification or participant-count enforcement; never reuse the link for additional participants. Only owner may revoke. Revoke clears both capabilities and queued ciphertext; plaintext already on clients is not recalled.
+
+Client receives only opposite-role envelopes; verifies authenticated decryption before showing and ACKing. A bounded client history keeps at most 20 records in RAM; replay IDs last for the room. Invalid envelopes are not ACKed and expire normally. HTML/SVG are not executed or rendered inline. File bytes download as octet-stream. Copy is user-initiated text only, never background clipboard. Browser image clipboard/native shortcuts are not implemented.
+
+The URL fragment is removed from the address bar before the join request. Avoid sharing invites through systems that store URLs; no secret should enter logs or persistent browser app storage. The local scanner is a warning heuristic, not a validated detector. Use synthetic data only. HTTPS endpoints protect the browser bundle and capability traffic; an active server compromise can replace the client, so this demo is not a security certification.
+
+Public synthetic vectors: `test-vectors/test-v0.json`. Executable checks: `web/tests/crypto.test.mjs` and `backend/test_relay.py`.
+
+## Native experimental clients (approved 2026-09-21)
+
+The user approved extending this isolated experiment to iOS/Android ↔ Web using the same endpoints, wire format, primitives, role model and limits. This authorizes implementation, not a claim of verified interoperability. Trusted-device authentication and the main protocol remain unapproved.
+
+Native clients keep secrets and API capabilities only in process memory. They require HTTPS (explicit loopback-only debug exceptions may be used for automated tests), reject redirects, and use the server Date header plus monotonic elapsed time for expiry checks. Polling occurs while the main app is active, not from the keyboard. Session changes must discard stale asynchronous responses and replay state.
+
+Keyboard insertion is explicit and limited to Text/URL. Android shares the selected item in process memory with its IME. iOS requires an App Group for a user-selected item: a protected, backup-excluded file containing only that item and an expiry no later than five minutes or room expiry. No room secret or capability enters the shared container. The keyboard checks expiry on load and immediately before insertion. Users can clear the selected item in the main app. Refresh/expiry/revoke cannot recall data already pasted elsewhere. Keyboards must not capture host text, monitor clipboard, or make network requests. Share extensions/intents stage user-selected data locally; upload requires confirmation in the main app.
+
+## Android automatic keyboard inbox (user-approved extension)
+
+The user approved docs/android-auto-keyboard-proposal.md in this task. For Android only, this section supersedes the foreground-Activity-only polling and manually selected Text/URL limitations above. A user-created/joined room starts a dataSync foreground service with a visible notification and stop action. The service owns the single receive loop; IME code never performs network requests. Stop on room expiry, revocation, explicit stop or OS timeout; no boot or process-death auto-reconnect. Room capabilities and secrets remain only in process RAM.
+
+Verified received Text/URL (up to 64 KiB) and validated PNG/JPEG/WebP images (up to 5 MiB each) automatically populate an in-process keyboard inbox of at most 20 records and 20 MiB decoded bytes. Each record expires no later than five minutes after receipt or room expiry using elapsed monotonic time including sleep. Expiry and room generation are checked before use; close/revoke/stop clears records. Image previews require bounded raster decoding; HTML/SVG are excluded.
+
+Insertion remains user-initiated. Image insertion uses Android commitContent only for a supported editor MIME type, through a non-exported read-only content provider with per-URI read grants. Image bytes stay in RAM; expired records cannot be reopened/read through the provider. Already transferred bytes cannot be recalled. Sensitive/password fields do not expose the inbox. iOS, wire format, endpoints, cryptography and network test vectors remain unchanged.
+
+## iOS automatic keyboard inbox (user-approved 2026-09-22)
+
+The user approved keyboard-visible Relay polling and temporary shared Keychain credentials, excluding APNs/background push. For iOS only, this supersedes the RAM-only credential, manually selected inbox and no-keyboard-network restrictions above. Wire format, endpoints and cryptographic primitives remain unchanged.
+
+The main app creates/joins a room once. App and keyboard share room credentials through a dedicated Keychain access group, accessible only while unlocked on this device, without synchronization. The Share extension has no access to that Keychain group. Room lifetime is bounded by server expiry and a local continuous monotonic deadline including sleep; reboot invalidates the saved room. Every read/use checks expiry. Exit, observed 401/revoke, or expiry clears credentials and cached content; while iOS suspends all processes physical cleanup waits until the next access. Remote revocation cannot recall previously copied data and is detected on the next successful request.
+
+With Allow Full Access enabled, the keyboard polls only while visible. Without it, ordinary typing remains available but shared content and network access are disabled. No background push, clipboard monitoring, host-text reads or keystroke collection. App and keyboard atomically persist authenticated received records before ACK, use generation checks and shared replay IDs, and tolerate repeated ACK 404. Shared protected, backup-excluded files contain received content only, never session secrets/capabilities. Keep at most 20 records / 20 MiB decoded bytes; record lifetime is at most 300 seconds, envelope expiry and room expiry. Replay IDs remain until room exit/expiry even after clearing the inbox.
+
+Text/URL insertion is user-initiated and limited to 64 KiB. Validated PNG/JPEG/WebP images up to 5 MiB support bounded thumbnail decoding and user-initiated local-only expiring clipboard copy, followed by manual paste in a supporting app. Files and unsupported images are opened through the main app. No automatic image insertion claim. Keyboard HTTP responses are bounded to 12 MiB; larger queues require opening the main app. Signed App Group/Keychain provisioning and real-device memory/lifecycle/host-app behavior require device validation.

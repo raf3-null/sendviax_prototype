@@ -1,0 +1,101 @@
+# Environment and secrets (keep the documented example)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+secrets/
+
+# Operating systems
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.fleet/
+.deveco/
+
+# Python / FastAPI
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+dist/
+build/
+
+# Node.js / Next.js
+node_modules/
+.next/
+out/
+.turbo/
+.npm/
+.yarn/cache/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Xcode / Swift
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+.build/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+# Android Studio / Kotlin / Gradle
+.gradle/
+local.properties
+captures/
+**/android/build/
+**/.cxx/
+*.apk
+*.aab
+
+# .NET / Visual Studio
+**/[Bb]in/
+**/[Oo]bj/
+.vs/
+TestResults/
+*.nupkg
+
+# HarmonyOS / DevEco Studio
+.hvigor/
+oh_modules/
+build-profile.json5.user
+*.hap
+*.hsp
+
+# Docker and local runtime artifacts
+docker-compose.override.yml
+*.pid
+*.sock
+*.log
+tmp/
+.cache/
+/outputs/mobile-tests/
+
+# Local databases and coverage
+*.sqlite
+*.sqlite3
+coverage/

@@ -1,0 +1,5 @@
+*
+!Dockerfile
+!requirements.txt
+!app.py
+!cleanup_worker.py

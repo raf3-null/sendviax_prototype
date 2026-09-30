@@ -1,0 +1,58 @@
+name: sendviax-relay
+services:
+  api:
+    build:
+      context: ../../backend
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:${RELAY_PORT:-8000}:8000"
+    command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1", "--no-access-log"]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz',timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: sendviax
+      POSTGRES_USER: sendviax
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run sh scripts/relay-stack.sh init first}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sendviax -d sendviax"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--maxmemory", "128mb", "--maxmemory-policy", "noeviction", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  cleanup:
+    profiles: [future-storage]
+    build:
+      context: ../../backend
+    command: ["python", "cleanup_worker.py"]
+    restart: "no"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+volumes:
+  postgres_data:

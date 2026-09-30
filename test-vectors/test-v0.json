@@ -1,0 +1,11 @@
+{
+  "note": "PUBLIC SYNTHETIC TEST VECTOR - NOT A LIVE SESSION SECRET",
+  "ikm_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+  "salt_hex": "0101010101010101010101010101010101010101010101010101010101010101",
+  "info": "sendviax-test-v0/content",
+  "nonce_hex": "020202020202020202020202",
+  "aad": "[\"test-v0\",\"0123456789abcdef0123456789abcdef\",\"00000000-0000-4000-8000-000000000000\",\"owner\",2000000000]",
+  "plaintext": "{\"type\":\"text\",\"name\":\"test.txt\",\"mime\":\"text/plain\",\"data\":\"aGVsbG8\"}",
+  "key_hex": "eeca3680c3263a535d9c63a16c3b2b7053c8ad48c6cbae22edc73e96b9d5e5db",
+  "ciphertext_tag_hex": "8f71f6aae32b8d1d9f4fab2ec931d255dac966fbac363d87955baab21b574545734846c17c77b0ecff44b852fb16da9a57fc3280b355428a3d47ccb6656deae7d63ef58da802652bdec68ead378e769f6c146d43081f"
+}

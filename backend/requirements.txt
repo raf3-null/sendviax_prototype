@@ -1,0 +1,5 @@
+# API framework and ASGI runner; no crypto dependency on the relay.
+fastapi==0.128.8
+uvicorn==0.39.0
+# Local API tests only.
+httpx==0.28.1

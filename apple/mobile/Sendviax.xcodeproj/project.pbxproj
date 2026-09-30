@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0260B52D08CD29BF2580F29B /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B62914B49F715C02061F67 /* Shared.swift */; };
+		1B2FAA4A81D17B07115D19A3 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EF8F287B988A45022836E /* App.swift */; };
+		32F3555BB61D87D78AE5292D /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80A856C16A14F78588EC01F /* ShareController.swift */; };
+		5FBE68DC33B0ABFE70A0FC7B /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21ACEA028009A5909B4F02 /* KeyboardController.swift */; };
+		AEA316E3B05950E8F1EF6B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 795A02A63DC9C1E86758E98F /* Assets.xcassets */; };
+		D270211BE34590F8F4556D7F /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B62914B49F715C02061F67 /* Shared.swift */; };
+		DAEFA57D241EC535E3D5BC3C /* SendviaxKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CEBEF0D9A1863C20D9A80834 /* SendviaxKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DDED414F3A6B037A8033249B /* SendviaxShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C782D80251759B09BC5604E /* SendviaxShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DFB1C3D6DC50A11D22CD6A72 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B62914B49F715C02061F67 /* Shared.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00F17A1B4ABC327006D52C8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 874F91A01A64B6A30CDAB3C3;
+			remoteInfo = SendviaxShare;
+		};
+		500274B7F9D84B2BCA3CE2F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8576531B152FF8D66985D989;
+			remoteInfo = SendviaxKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DD615B768CF8ACFE2ED53E52 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DDED414F3A6B037A8033249B /* SendviaxShare.appex in Embed App Extensions */,
+				DAEFA57D241EC535E3D5BC3C /* SendviaxKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		184FDB4269E7CFEE064198B7 /* Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keyboard.entitlements; sourceTree = "<group>"; };
+		1C782D80251759B09BC5604E /* SendviaxShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; path = SendviaxShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D21ACEA028009A5909B4F02 /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
+		681C948D238C526E9E3424E0 /* Sendviax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Sendviax.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		795A02A63DC9C1E86758E98F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B70EF8F287B988A45022836E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		C9565027CA3BAD2603F41625 /* Share-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Share-Info.plist"; sourceTree = "<group>"; };
+		CEBEF0D9A1863C20D9A80834 /* SendviaxKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; path = SendviaxKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D43401F78D148C49CCAFA8C8 /* App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App-Info.plist"; sourceTree = "<group>"; };
+		D80A856C16A14F78588EC01F /* ShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
+		D8B62914B49F715C02061F67 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		DAFE7D2F629ABB9EF3B73E87 /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App.entitlements; sourceTree = "<group>"; };
+		F5D1D187C2AA636D0CE5E8BF /* Keyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Keyboard-Info.plist"; sourceTree = "<group>"; };
+		FDF50AA4C319FCE61057F0F1 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Share.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2EAFA7F28D70BC92755177C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AB9036F432CA0639DB1DD9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E88ED333AAAE9D435FA46F39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A3E27B8CA818264D75C8D81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				681C948D238C526E9E3424E0 /* Sendviax.app */,
+				1C782D80251759B09BC5604E /* SendviaxShare.appex */,
+				CEBEF0D9A1863C20D9A80834 /* SendviaxKeyboard.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8D2DC745BFC63C0D67231CE = {
+			isa = PBXGroup;
+			children = (
+				B70EF8F287B988A45022836E /* App.swift */,
+				D8B62914B49F715C02061F67 /* Shared.swift */,
+				D80A856C16A14F78588EC01F /* ShareController.swift */,
+				D43401F78D148C49CCAFA8C8 /* App-Info.plist */,
+				C9565027CA3BAD2603F41625 /* Share-Info.plist */,
+				DAFE7D2F629ABB9EF3B73E87 /* App.entitlements */,
+				FDF50AA4C319FCE61057F0F1 /* Share.entitlements */,
+				3D21ACEA028009A5909B4F02 /* KeyboardController.swift */,
+				F5D1D187C2AA636D0CE5E8BF /* Keyboard-Info.plist */,
+				184FDB4269E7CFEE064198B7 /* Keyboard.entitlements */,
+				795A02A63DC9C1E86758E98F /* Assets.xcassets */,
+				0A3E27B8CA818264D75C8D81 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8576531B152FF8D66985D989 /* SendviaxKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2847E01A9C5A74D4C0E2EE7B /* Build configuration list for PBXNativeTarget "SendviaxKeyboard" */;
+			buildPhases = (
+				4EA1F2831A87E78878DD3444 /* Sources */,
+				2EAFA7F28D70BC92755177C1 /* Frameworks */,
+				1EA807615140CEF9BB04798C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SendviaxKeyboard;
+			productName = SendviaxKeyboard;
+			productReference = CEBEF0D9A1863C20D9A80834 /* SendviaxKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		874F91A01A64B6A30CDAB3C3 /* SendviaxShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A16CFD19101DD7CD7E587A75 /* Build configuration list for PBXNativeTarget "SendviaxShare" */;
+			buildPhases = (
+				0B558CC55A8D1479D2F18795 /* Sources */,
+				E88ED333AAAE9D435FA46F39 /* Frameworks */,
+				F75F80F7687E72E3072D4F80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SendviaxShare;
+			productName = SendviaxShare;
+			productReference = 1C782D80251759B09BC5604E /* SendviaxShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		C1E9827DB735CA9BAA54A540 /* Sendviax */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77A55343887EB84935BE9A4C /* Build configuration list for PBXNativeTarget "Sendviax" */;
+			buildPhases = (
+				76E74C38C460832500848CE1 /* Sources */,
+				4AB9036F432CA0639DB1DD9F /* Frameworks */,
+				D52A9B9509D5C0A0D12CF61E /* Resources */,
+				DD615B768CF8ACFE2ED53E52 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74E58869800C5F3F8695A745 /* PBXTargetDependency */,
+				0654047E87B8F30852B2617C /* PBXTargetDependency */,
+			);
+			name = Sendviax;
+			productName = Sendviax;
+			productReference = 681C948D238C526E9E3424E0 /* Sendviax.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		244210E48437B6556980A702 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 9879E227F5AD614B3D33074F /* Build configuration list for PBXProject "Sendviax" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8D2DC745BFC63C0D67231CE;
+			productRefGroup = 0A3E27B8CA818264D75C8D81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1E9827DB735CA9BAA54A540 /* Sendviax */,
+				874F91A01A64B6A30CDAB3C3 /* SendviaxShare */,
+				8576531B152FF8D66985D989 /* SendviaxKeyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1EA807615140CEF9BB04798C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52A9B9509D5C0A0D12CF61E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEA316E3B05950E8F1EF6B39 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F75F80F7687E72E3072D4F80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B558CC55A8D1479D2F18795 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32F3555BB61D87D78AE5292D /* ShareController.swift in Sources */,
+				DFB1C3D6DC50A11D22CD6A72 /* Shared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EA1F2831A87E78878DD3444 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FBE68DC33B0ABFE70A0FC7B /* KeyboardController.swift in Sources */,
+				0260B52D08CD29BF2580F29B /* Shared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76E74C38C460832500848CE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B2FAA4A81D17B07115D19A3 /* App.swift in Sources */,
+				D270211BE34590F8F4556D7F /* Shared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0654047E87B8F30852B2617C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8576531B152FF8D66985D989 /* SendviaxKeyboard */;
+			targetProxy = 500274B7F9D84B2BCA3CE2F8 /* PBXContainerItemProxy */;
+		};
+		74E58869800C5F3F8695A745 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 874F91A01A64B6A30CDAB3C3 /* SendviaxShare */;
+			targetProxy = 00F17A1B4ABC327006D52C8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B0C687DF8B6B8DC790B519C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		41BF3B80AA05D456E777AA88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Keyboard.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Keyboard-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.sendviax.mobile.keyboard;
+				PRODUCT_NAME = SendviaxKeyboard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6C991EF6ABB55961C32710ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "App-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.sendviax.mobile;
+				PRODUCT_NAME = Sendviax;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		73EBF6644258C120893E685D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8336201DEDCD703C0960CE9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Keyboard.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Keyboard-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.sendviax.mobile.keyboard;
+				PRODUCT_NAME = SendviaxKeyboard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCA2849196CC6663781E27A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Share.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Share-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.sendviax.mobile.share;
+				PRODUCT_NAME = SendviaxShare;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E9C949CC126DA712A0D9F719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "App-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.sendviax.mobile;
+				PRODUCT_NAME = Sendviax;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FE8AFB7066CD3BF452E3C019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Share.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Share-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.sendviax.mobile.share;
+				PRODUCT_NAME = SendviaxShare;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2847E01A9C5A74D4C0E2EE7B /* Build configuration list for PBXNativeTarget "SendviaxKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8336201DEDCD703C0960CE9F /* Debug */,
+				41BF3B80AA05D456E777AA88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		77A55343887EB84935BE9A4C /* Build configuration list for PBXNativeTarget "Sendviax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C991EF6ABB55961C32710ED /* Debug */,
+				E9C949CC126DA712A0D9F719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9879E227F5AD614B3D33074F /* Build configuration list for PBXProject "Sendviax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73EBF6644258C120893E685D /* Debug */,
+				0B0C687DF8B6B8DC790B519C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A16CFD19101DD7CD7E587A75 /* Build configuration list for PBXNativeTarget "SendviaxShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCA2849196CC6663781E27A6 /* Debug */,
+				FE8AFB7066CD3BF452E3C019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 244210E48437B6556980A702 /* Project object */;
+}
