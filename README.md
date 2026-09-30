@@ -63,9 +63,3 @@ npm --prefix web run typecheck
 node --experimental-strip-types web/tests/crypto.test.mjs
 ```
 
-## สถานะและการส่ง GitHub
-
-นี่คือ prototype ไม่ใช่ production release ห้อง/เนื้อหามีอายุจำกัด และข้อมูล Relay หายเมื่อ restart ต้องสร้างห้องใหม่ PostgreSQL/Redis/R2 ไม่ใช่หลักฐานว่า durable Relay พร้อมแล้ว ไฟล์ติดตั้ง Android/macOS ถูกตัดออก ลิงก์ดาวน์โหลดแพลตฟอร์มเหล่านั้นจึงไม่มี binary ในชุดนี้
-
-อัปโหลดเฉพาะเนื้อหาโฟลเดอร์นี้เป็น repository ใหม่ ตรวจ `git status` ก่อน commit ห้ามเพิ่ม `.env`, token, certificate, private key หรือ Session Secret ไม่รวม `node_modules`, `.next`, Python venv และ Xcode build
-# sendviax_prototype
